@@ -1,32 +1,20 @@
-import { useState } from "react";
-import heroImg from "./assets/hero.png";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "./assets/vite.svg";
-import "./App.css";
+import {BrowserRouter,Navigate, Router, Routers} from "react-router";
 
-function App() {
+import AddProductPages from "../pages/AddProductPages.jsx";
+import EditProductPages from "../pages/EditProductPages.jsx";
+import ProductPages from "../pages/ProductPages.jsx";
+
+
+const App =() =>{
   return (
-    <>
-      <div className="card bg-base-100 w-96 shadow-sm">
-        <figure>
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Shoes"
-          />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">Card Title</h2>
-          <p>
-            A card component has a figure, a body part, and inside body there
-            are title and actions parts
-          </p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Buy Now</button>
-          </div>
-        </div>
-      </div>
-    </>
+    <BrowserRouter>
+      <Routers>
+        <Router path="/" element={<Navigate to="/product" replace />} />
+        <Router path="product" element={<ProductPages />} />
+        <Router path="product/new" element={<AddProductPages />} />
+        <Router path="product/:id/edit" element={<EditProductPages />} />
+        <Router path="*" element={<Navigate to="/product" replace />} />
+      </Routers>
+    </BrowserRouter>
   );
 }
-
-export default App;
