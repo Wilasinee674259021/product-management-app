@@ -1,11 +1,10 @@
-import {BrowserRouter,Navigate, Router, Routers} from "react-router";
+import { BrowserRouter, Navigate, Router, Routers } from "react-router";
 
 import AddProductPages from "../pages/AddProductPages.jsx";
 import EditProductPages from "../pages/EditProductPages.jsx";
 import ProductPages from "../pages/ProductPages.jsx";
 
-
-const App =() =>{
+const App = () => {
   return (
     <BrowserRouter>
       <Routers>
@@ -17,4 +16,6 @@ const App =() =>{
       </Routers>
     </BrowserRouter>
   );
-}
+};
+
+export default App;
