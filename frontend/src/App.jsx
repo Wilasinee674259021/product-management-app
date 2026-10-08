@@ -1,21 +1,20 @@
-import { BrowserRouter, Navigate, Router, Routers } from "react-router";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 
-import AddProductPages from "../pages/AddProductPages.jsx";
-import EditProductPages from "../pages/EditProductPages.jsx";
-import ProductPages from "../pages/ProductPages.jsx";
+import AddProductPage from "./pages/AddProductPage.jsx";
+import EditProductPage from "./pages/EditProductPage.jsx";
+import ProductPage from "./pages/ProductPage.jsx";
 
-const App = () => {
+function App() {
   return (
     <BrowserRouter>
-      <Routers>
-        <Router path="/" element={<Navigate to="/product" replace />} />
-        <Router path="product" element={<ProductPages />} />
-        <Router path="product/new" element={<AddProductPages />} />
-        <Router path="product/:id/edit" element={<EditProductPages />} />
-        <Router path="*" element={<Navigate to="/product" replace />} />
-      </Routers>
+      <Routes>
+        <Route path="/" element={<Navigate to="/product" replace />} />
+        <Route path="/product" element={<ProductPage />} />
+        <Route path="/product/new" element={<AddProductPage />} />
+        <Route path="/product/:id/edit" element={<EditProductPage />} />
+        <Route path="*" element={<Navigate to="/product" replace />} />
+      </Routes>
     </BrowserRouter>
   );
-};
-
+}
 export default App;
